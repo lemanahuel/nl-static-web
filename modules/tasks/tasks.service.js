@@ -1,5 +1,21 @@
 $('document').ready(() => {
-  window.API_PATH = 'http://localhost:5001/';
+  window.API_PATH = (() => {
+    var host = location.host;
+    if (host.indexOf('localhost') > -1) {
+      host = 'http://localhost:5001/';
+    } else if (host.indexOf('herokuapp') > -1) {
+      if (host.indexOf('koa') > -1) {
+        host = 'https://nl-koa-api.herokuapp.com/';
+      } else if (host.indexOf('express') > -1) {
+        host = 'https://nl-express-api.herokuapp.com/';
+      } else if (host.indexOf('hapi') > -1) {
+        host = 'https://nl-hapi-api.herokuapp.com/';
+      } else if (host.indexOf('meteor') > -1) {
+        host = 'https://nl-meteor-api.herokuapp.com/';
+      }
+    }
+    return host;
+  })();
   window.API_TASKS = window.API_PATH + 'tasks';
 
   window.TASKS_SRV = {
