@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>CURSO de KOA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- http://fontawesome.com/ -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <!-- http://getbootstrap.com/ -->
+  <link rel="stylesheet" href="libs/bootstrap.min.css">
+  <!--  -->
+  <link rel="stylesheet/less" type="text/css" href="modules/tasks/tasks.less" />
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8">
+        <div class="row tasks-container">
+          <div class="col-sm-12 tasks-list-container">
+            <div class="tasks-content">
+              <form id="form-new-task">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Nueva tarea" id="new-task">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-primary" type="submit">
+                      <i class="fas fa-plus"></i>
+                    </button>
+                  </div>
+                </div>
+              </form>
+              <br>
+              <div class="row">
+                <div class="col-6">
+
+                </div>
+                <div class="col-6 text-right">
+                  <div class="btn-group" role="group" aria-label="Basic example">
+                    <button class="btn btn-link" id="btn-filter-enable" type="button">
+                      <i class="fas fa-times"></i>
+                    </button>
+                    <button class="btn btn-link" id="btn-filter-completed" type="button">
+                      <i class="fas fa-check-circle"></i>
+                    </button>
+                    <button class="btn btn-link" id="btn-sort-az" type="button">
+                      <i class="fas fa-sort-alpha-up"></i>
+                    </button>
+                    <button class="btn btn-link" id="btn-sort-09" type="button">
+                      <i class="fas fa-sort-amount-up"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <ol id="tasks-list" class="list-group"></ol>
+            </div>
+          </div>
+          <div class="task-details-container">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <script id="task-tpl" type="text/template" style="opacity:0;">
+      <li class="list-group-item" id="<%= task._id %>">
+        <div class="input-group">
+          <div class="input-group-preppend">
+            <button class="btn btn-outline-secondary btn-task-status" type="button" >
+              <% if (task.completed) { %>
+                <i class="fas fa-check-circle"></i>
+              <% } else { %>
+              <i class="far fa-circle"></i>
+              <% } %>
+            </button>
+          </div>
+  
+          <input type="text"  class="form-control" value="<%= task.title %>">
+  
+          <div class="input-group-append">
+            <!-- <button class="btn btn-outline-secondary btn-task-remove" type="button">
+              <i class="fas fa-times-circle"></i>
+            </button> -->
+            <button class="btn btn-outline-secondary btn-task-details" type="button">
+              <i class="fas fa-edit"></i>
+            </button>
+          </div>
+        </div>
+      </li>
+    </script>
+
+  <script id="task-details-tpl" type="text/template" style="opacity:0;">
+    <div class="tasks-content">
+      <form id="form-new-task">
+        <div class="row">
+          <div class="col-sm-6">
+            <button class="btn btn-outline-secondary" id="edit-task-btn-complete" type="submit">
+              <i class="fas fa-check-circle"></i>&nbsp;&nbsp;Completar
+            </button>
+          </div>
+          <div class="col-sm-6 text-right">
+            <button class="btn btn-outline-primary" id="edit-task-btn-save" type="submit">
+              <i class="fas fa-save"></i>
+            </button>
+            <button class="btn btn-light" id="edit-task-btn-remove" type="submit">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <br>
+        <div class="input-group">
+          <input type="text" class="form-control" value="<%= task.title %>" placeholder="Editar" id="edit-task-title">
+        </div>
+        <br>
+        <div class="input-group">
+          <textarea class="form-control" id="edit-task-description" rows="3"><%= task.description %></textarea>
+        </div>
+        <br>
+        <div class="input-group">
+          <div class="custom-file">
+            <input type="file" accept="image/*" multiple class="custom-file-input" id="edit-task-image" aria-describedby="edit-task-image-btn">
+            <label class="custom-file-label" for="edit-task-image">Agregar imagen</label>
+          </div>
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" id="edit-task-image-btn"><i class="fas fa-images"></i></button>
+          </div>
+        </div>
+        <br>
+        <div class="row" >
+          <% _.each(task.images, img => { %>
+          <div class="col-6">
+            <img src="<%= img %>" alt="<%= img %>" class="img-thumbnail">
+          </div>
+          <% }); %>
+        </div>
+      </form>
+    </div>
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js"></script>
+  <script src="libs/jquery.min.js"></script>
+  <script src="libs/lodash.min.js"></script>
+  <script src="modules/tasks/tasks.service.js"></script>
+  <script src="modules/tasks/tasks.controller.js"></script>
+</body>
+
+</html>

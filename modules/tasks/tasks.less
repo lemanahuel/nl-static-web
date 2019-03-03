@@ -1,0 +1,29 @@
+body {
+  background: #efefef;
+}
+
+.tasks-container {
+  margin-top: 15px;
+  .tasks-content {
+    background: #fff;
+    box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    padding: 15px;
+    min-height: 95vh;
+    transition: all .3s ease-in-out;
+  }
+  #tasks-list {
+    transition: all .3s ease-in-out;
+    .list-group-item {
+      padding: 0;
+      transition: all .3s ease-in-out;
+      &:hover {
+        box-shadow: 0 0 100px 0 rgba(0, 0, 0, .05);
+      }
+      .btn,
+      .form-control {
+        border: 0;
+      }
+    }
+  }
+}
