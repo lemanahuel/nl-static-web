@@ -4,7 +4,7 @@ const server = new StaticServer({
   rootPath: '.',            // required, the root of the server file tree
   port: config.PORT,               // required, the port to listen
   name: 'nl-static-web',   // optional, will set "X-Powered-by" HTTP header
-  host: 'localhost',       // optional, defaults to any interface
+  // host: 'localhost',       // optional, defaults to any interface
   cors: '*',                // optional, defaults to undefined
   followSymlink: true,      // optional, defaults to a 404 error
   templates: {
