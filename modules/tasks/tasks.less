@@ -4,12 +4,13 @@ body {
 
 .tasks-container {
   margin-top: 15px;
+  transition: all .3s ease-in-out;
   .tasks-content {
     background: #fff;
     box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     padding: 15px;
-    min-height: 95vh;
+    min-height: 92vh;
     transition: all .3s ease-in-out;
   }
   #tasks-list {
@@ -24,6 +25,20 @@ body {
       .form-control {
         border: 0;
       }
+    }
+  }
+}
+
+.signature {
+  height: 5vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  a {
+    color: #aaa;
+    transition: all .3s ease-in-out;
+    &:hover {
+      color: #000;
     }
   }
 }
