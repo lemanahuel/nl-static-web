@@ -75,6 +75,7 @@ $('document').ready(() => {
       });
     });
     task.$details.find('#edit-task-btn-complete').on('click', e => {
+      e.preventDefault();
       toogleCompletedTask(task, res => {
         task.$el = renderTask(res).$el;
         $('#' + task._id).replaceWith(task.$el);
