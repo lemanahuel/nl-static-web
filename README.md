@@ -1,7 +1,12 @@
-# nl-static-web
+## 💻 ToDo List multi API
+Mediante distintas APIs, hechas con Express, KOA, HAPI, Meteor, Restify y mas estaremos utilizando esta lista.
 
-# 💻 MongoDB + Mongoose, comenzá a programar hoy! 👊
+### Mis cursos de APIs
 
-Desarrollaremos un CRUD completo con una API RestFul en Node + Express para persistir todo en nuestra base de datos
+⭐ https://www.udemy.com/user/nahuellema/
 
-👉 https://www.udemy.com/programa-hoy-en-mongodb-con-mongoose/
+---
+
+### Contacto
+
+👋 [Nahuel Lema](https://www.linkedin.com/in/nahuellema/)
