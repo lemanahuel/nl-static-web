@@ -21,7 +21,7 @@
     "node": "11.x.x",
     "npm": "6.x.x"
   },
-  "license": "ISC",
+  "license": "BY-NC-SA",
   "dependencies": {
     "forever": "^0.15.3",
     "static-server": "^2.2.1"
