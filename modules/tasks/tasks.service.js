@@ -8,7 +8,7 @@ $('document').ready(() => {
       if (href.includes('koa')) {
         host = 'nl-koa-api';
       } else if (href.includes('hapi')) {
-        host = 'nl-hapi-api';
+        host = 'nl-hapi-api-prod';
       } else if (href.includes('restana')) {
         host = 'nl-restana-api';
       } else if (href.includes('fastify')) {
