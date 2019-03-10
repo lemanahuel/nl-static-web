@@ -6,7 +6,7 @@ $('document').ready(() => {
     } else if (host.includes('herokuapp')) {
       const href = location.href;
       if (href.includes('koa')) {
-        host = 'nl-koa-api';
+        host = 'nl-koa-api-prod';
       } else if (href.includes('hapi')) {
         host = 'nl-hapi-api-prod';
       } else if (href.includes('restana')) {
