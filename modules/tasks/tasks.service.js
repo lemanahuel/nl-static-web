@@ -1,18 +1,26 @@
 $('document').ready(() => {
   window.API_PATH = (() => {
     var host = location.host;
-    if (host.indexOf('localhost') > -1) {
+    if (host.includes('localhost')) {
       host = 'http://localhost:5001/';
-    } else if (host.indexOf('herokuapp') > -1) {
-      if (host.indexOf('koa') > -1) {
-        host = 'https://nl-koa-api.herokuapp.com/';
-      } else if (host.indexOf('express') > -1) {
-        host = 'https://nl-express-api.herokuapp.com/';
-      } else if (host.indexOf('hapi') > -1) {
-        host = 'https://nl-hapi-api.herokuapp.com/';
-      } else if (host.indexOf('meteor') > -1) {
-        host = 'https://nl-meteor-api.herokuapp.com/';
+    } else if (host.includes('herokuapp')) {
+      const href = location.href;
+      if (href.includes('koa')) {
+        host = 'nl-koa-api';
+      } else if (href.includes('express')) {
+        host = 'nl-express-api';
+      } else if (href.includes('hapi')) {
+        host = 'nl-hapi-api';
+      } else if (href.includes('meteor')) {
+        host = 'nl-meteor-api';
+      } else if (href.includes('restana')) {
+        host = 'nl-restana-api';
+      } else if (href.includes('fastify')) {
+        host = 'nl-fastify-api';
+      } else if (href.includes('restify')) {
+        host = 'nl-restify-api';
       }
+      host = `https://${host}.herokuapp.com/`;
     }
     return host;
   })();
