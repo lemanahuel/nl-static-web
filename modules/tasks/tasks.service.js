@@ -7,18 +7,16 @@ $('document').ready(() => {
       const href = location.href;
       if (href.includes('koa')) {
         host = 'nl-koa-api';
-      } else if (href.includes('express')) {
-        host = 'nl-express-api';
       } else if (href.includes('hapi')) {
         host = 'nl-hapi-api';
-      } else if (href.includes('meteor')) {
-        host = 'nl-meteor-api';
       } else if (href.includes('restana')) {
         host = 'nl-restana-api';
       } else if (href.includes('fastify')) {
         host = 'nl-fastify-api';
       } else if (href.includes('restify')) {
         host = 'nl-restify-api';
+      } else {
+        host = 'nl-express-api';
       }
       host = `https://${host}.herokuapp.com/`;
     }
