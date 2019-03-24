@@ -15,6 +15,8 @@ $('document').ready(() => {
         host = 'nl-fastify-api';
       } else if (href.includes('restify')) {
         host = 'nl-restify-api';
+      } else if (href.includes('feathers')) {
+        host = 'nl-restify-api';
       } else {
         host = 'nl-express-api';
       }
