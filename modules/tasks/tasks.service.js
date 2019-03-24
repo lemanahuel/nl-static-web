@@ -17,6 +17,8 @@ $('document').ready(() => {
         host = 'nl-restify-api';
       } else if (href.includes('feathers')) {
         host = 'nl-feathers-api';
+      } else if (href.includes('adonis')) {
+        host = 'nl-adonis-api';
       } else {
         host = 'nl-express-api';
       }
